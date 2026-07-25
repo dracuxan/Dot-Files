@@ -1,4 +1,5 @@
 local vim = vim
+local float = "float"
 local autoRun = "horizontal"
 local default = "vertical"
 local status_ok, toggleterm = pcall(require, "toggleterm")
@@ -78,7 +79,7 @@ function _RUN_REPL()
 	local filepath = vim.fn.fnamemodify(buffname, ":p")
 	local script_test = Terminal:new({
 		cmd = "run " .. filepath .. " --repl",
-		direction = autoRun,
+		direction = float,
 		persist_size = true,
 		hidden = true,
 		close_on_exit = false,

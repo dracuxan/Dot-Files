@@ -41,12 +41,6 @@ if [[ -z "$FILE_PATH" ]]; then
     exit 1
 fi
 
-if [[ -f "build.zig" ]]; then
-    IS_ZIG_PROJECT=true
-else
-    IS_ZIG_PROJECT=false
-fi
-
 EXT="${FILE_PATH##*.}"
 FILE_NAME=$(basename "$FILE_PATH" ."$EXT")
 
@@ -152,59 +146,77 @@ exs | ex)
 
     fi
     ;;
-zig)
-    if $IS_ZIG_PROJECT; then
-        # Project mode
-        if $TEST_PROJECT; then
-            echo "Running Zig project tests..."
-            echo ""
-            zig build test
+ml)
+    ML_DIR=$(dirname "$FILE_PATH")
+    ML_ROOT="$ML_DIR"
+    ML_HAS_DUNE=false
 
-        elif $BUILD_ONLY; then
-            echo "Building Zig project..."
-            echo ""
-            zig build
+    while [[ "$ML_ROOT" != "/" ]]; do
+        if [[ -f "$ML_ROOT/dune-project" ]] || [[ -f "$ML_ROOT/dune-workspace" ]]; then
+            ML_HAS_DUNE=true
+            break
+        fi
+        ML_ROOT=$(dirname "$ML_ROOT")
+    done
 
+    if ! $ML_HAS_DUNE && [[ -f "$ML_DIR/dune" ]]; then
+        ML_ROOT="$ML_DIR"
+        ML_HAS_DUNE=true
+    fi
+
+    if $TEST_PROJECT; then
+        echo "Running OCaml tests..."
+        echo ""
+        if $ML_HAS_DUNE; then
+            (
+                cd "$ML_ROOT" || exit 1
+                dune runtest
+            )
         else
-            echo "Running Zig project..."
-            echo ""
-            zig build run -- $ARGS
+            ocaml "$FILE_PATH"
+        fi
+        exit $?
+
+    elif $REPL; then
+        echo "Starting OCaml REPL..."
+        echo ""
+        if command -v utop >/dev/null 2>&1; then
+            utop -require base
+        else
+            ocaml
         fi
 
-    else
-        # Single file mode
-        if $TEST_PROJECT; then
-            echo "Running tests for ${FILE_NAME}.zig..."
-            echo ""
-            zig test "$FILE_PATH"
-
-        elif $BUILD_ONLY; then
-            echo "Building ${FILE_NAME}.zig..."
-            echo ""
+    elif $BUILD_ONLY; then
+        echo "Building ${FILE_NAME}.ml..."
+        echo ""
+        if $ML_HAS_DUNE; then
+            ML_REL_PATH=$(realpath --relative-to="$ML_ROOT" "$FILE_PATH")
+            ML_EXE_TARGET="./${ML_REL_PATH%.$EXT}.exe"
+            (
+                cd "$ML_ROOT" || exit 1
+                dune build "$ML_EXE_TARGET"
+            )
+        else
             mkdir -p target
-            zig build-exe "$FILE_PATH" -o "target/${FILE_NAME}"
-
-        else
-            echo "Running ${FILE_NAME}.zig..."
-            echo ""
-            zig run "$FILE_PATH" -- $ARGS
+            ocamlc "$FILE_PATH" -o "target/${FILE_NAME}"
         fi
-    fi
-    ;;
-ts | js)
-    if [[ "$EXT" == "js" ]]; then
-        echo "Running ${FILE_NAME}.js..."
-    else
+        exit $?
 
-        echo "Running ${FILE_NAME}.ts..."
+    else
+        echo "Running ${FILE_NAME}.ml..."
+        echo ""
+        if $ML_HAS_DUNE; then
+            ML_REL_PATH=$(realpath --relative-to="$ML_ROOT" "$FILE_PATH")
+            ML_EXE_TARGET="./${ML_REL_PATH%.$EXT}.exe"
+            (
+                cd "$ML_ROOT" || exit 1
+                dune exec "$ML_EXE_TARGET" -- $ARGS
+            )
+        else
+            ocaml "$FILE_PATH" $ARGS
+        fi
+        exit $?
     fi
-    echo ""
-    node $FILE_PATH
-    ;;
-py)
-    echo "Running ${FILE_NAME}.py...."
-    echo ""
-    python3 $FILE_PATH
     ;;
 sh)
     echo "Running ${FILE_NAME}.sh script...."

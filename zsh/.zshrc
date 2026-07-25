@@ -56,6 +56,9 @@ export PATH="$HOME/.local/bin:$PATH"
 alias tm='start_tmux'
 alias arise='ssh Igris'
 
+# Match Alacritty's Ctrl+; binding and clear the shell like Ctrl+l.
+bindkey $'\e[59;5u' clear-screen
+
 export LC_ALL=C.UTF-8
 
 # Git aliases
@@ -102,7 +105,6 @@ alias nix-system-profile='sudo nix profile list --profile /nix/var/nix/profiles/
 export PATH=/nix/var/nix/profiles/system/bin:$PATH
 
 # Startup Commands
-[ -f ~/.chatgpt.env ] && source ~/.chatgpt.env
 eval "$(starship init zsh)"
 
 if [[ -n "$IN_NIX_SHELL" ]]; then
@@ -129,11 +131,16 @@ export PATH="/home/dracuxan/.pixi/bin:$PATH"
 
 preexec() { LAST_CMD="$1" }
 precmd() {
+  local last_status=$?
   local exclude=("ls" "cd" "source" "clear" "x" "neo" "noe" "nv" "cls" "tm" "git" "lazygit" "vim" "cat")
   local cmd_base="${LAST_CMD%% *}"
   
   if [[ -n "$LAST_CMD" ]] && [[ ! " ${exclude[@]} " =~ " ${cmd_base} " ]]; then
-    dunstify "command completed: $LAST_CMD"
+    if [[ "$last_status" -eq 0 ]]; then
+      dunstify "command completed: $LAST_CMD"
+    else
+      dunstify "command failed ($last_status): $LAST_CMD"
+    fi
   fi
   LAST_CMD=""
 }

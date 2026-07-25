@@ -1,9 +1,6 @@
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"lua",
-		"python",
-		"javascript",
-		"typescript",
 		"vimdoc",
 		"vim",
 		"regex",
@@ -23,11 +20,9 @@ require("nvim-treesitter.configs").setup({
 		"markdown",
 		"markdown_inline",
 		"bash",
-		"tsx",
 		"css",
 		"html",
 		"rust",
-		"zig",
 	},
 	-- Autoinstall languages that are not installed
 	auto_install = true,

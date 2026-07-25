@@ -62,7 +62,7 @@ local custom_plugins = {
 							preview = false,
 							layout = {
 								position = "right",
-								width = 35,
+								width = 30,
 							},
 						},
 					},
@@ -228,6 +228,7 @@ local custom_plugins = {
 		opts = {},
 		config = function()
 			local opts = { noremap = true, silent = true }
+			vim.keymap.set("i", "<C-c>", require("Comment.api").toggle.linewise.current, opts)
 			vim.keymap.set("n", "<C-c>", require("Comment.api").toggle.linewise.current, opts)
 			vim.keymap.set(
 				"v",

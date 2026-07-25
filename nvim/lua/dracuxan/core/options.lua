@@ -18,7 +18,7 @@ vim.o.cmdheight = 1
 vim.opt.fillchars = { eob = " " }
 
 -- Behavior
-vim.o.mouse = ""
+-- vim.o.mouse = ""
 vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.ignorecase = true
