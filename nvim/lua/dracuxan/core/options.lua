@@ -78,3 +78,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		set_hl(0, "OilFloat", { bg = "none" })
 	end,
 })
+

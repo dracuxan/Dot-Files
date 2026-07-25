@@ -14,7 +14,7 @@
     },
     "color": {
       "keys": "white",
-      "title": "red",
+      "title": "white",
     },
   },
   "modules": [
@@ -23,29 +23,29 @@
       "type": "custom",
     },
     {
-      "key": "│           │\u001b[11D{#36} user",
+      "key": "│           │\u001b[11D{#37} user",
       "type": "title",
     },
     {
-      "key": "│           │\u001b[11D{#38}󰣇 os",
+      "key": "│           │\u001b[11D{#90}󰣇 os",
       "type": "os",
       "format": "{2}",
     },
     {
-      "key": "│           │\u001b[11D{#31}󰅐 uptime",
+      "key": "│           │\u001b[11D{#90}󰅐 uptime",
       "type": "uptime",
     },
     {
-      "key": "│           │\u001b[11D{#32} term",
+      "key": "│           │\u001b[11D{#37} term",
       "type": "terminal",
       "format": "{5}",
     },
     {
-      "key": "│           │\u001b[11D{#33} shell",
+      "key": "│           │\u001b[11D{#90} shell",
       "type": "shell",
     },
     {
-      "key": "│           │\u001b[11D{#34}󰍛 cpu",
+      "key": "│           │\u001b[11D{#37}󰍛 cpu",
       "type": "cpu",
       "format": "{1}",
     },
@@ -55,15 +55,15 @@
       "format": "{2}",
     },
     {
-      "key": "│           │\u001b[11D{#35} memory",
+      "key": "│           │\u001b[11D{#90} memory",
       "type": "memory",
     },
     {
-      "key": "│           │\u001b[11D{#39}󰓡 swap",
+      "key": "│           │\u001b[11D{#37}󰓡 swap",
       "type": "swap",
     },
     {
-      "key": "│           │\u001b[11D{#36}󰩟 network",
+      "key": "│           │\u001b[11D{#90}󰩟 network",
       "type": "localip",
       "format": "{1} ({4})",
     },

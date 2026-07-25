@@ -2,9 +2,9 @@ general {
     colors = true
     interval = 5
 
-    color_good     = "#99ffe4"
-    color_degraded = "#ffcfa8"
-    color_bad      = "#ff8080"
+    color_good     = "#e1e1e1"
+    color_degraded = "#7c7c7c"
+    color_bad      = "#525252"
 }
 
 order += "wireless _first_"
@@ -37,4 +37,3 @@ memory {
 tztime local {
     format = " 󰃭 %d-%m-%Y | %I:%M %p "
 }
-

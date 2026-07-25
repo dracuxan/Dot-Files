@@ -1,5 +1,5 @@
 [font]
-size = 10
+size = 8
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -27,6 +27,38 @@ save_to_clipboard = true
 [window.padding]
 x = 10
 y = 10
+
+[colors.primary]
+background = "#060606"
+foreground = "#e1e1e1"
+
+[colors.cursor]
+text = "#060606"
+cursor = "#e1e1e1"
+
+[colors.selection]
+text = "#e1e1e1"
+background = "#3c3c3c"
+
+[colors.normal]
+black = "#060606"
+red = "#525252"
+green = "#7c7c7c"
+yellow = "#7c7c7c"
+blue = "#525252"
+magenta = "#7c7c7c"
+cyan = "#7c7c7c"
+white = "#e1e1e1"
+
+[colors.bright]
+black = "#6b6b6b"
+red = "#525252"
+green = "#7c7c7c"
+yellow = "#e1e1e1"
+blue = "#7c7c7c"
+magenta = "#e1e1e1"
+cyan = "#e1e1e1"
+white = "#e1e1e1"
 
 [keyboard]
 bindings = [

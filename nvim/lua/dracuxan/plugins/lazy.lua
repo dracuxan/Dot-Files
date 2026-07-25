@@ -18,6 +18,40 @@ local custom_plugins = {
 	require("dracuxan.plugins.textobjects"),
 
 	{
+		"zenbones-theme/zenbones.nvim",
+		-- Optionally install Lush. Allows for more configuration or extending the colorscheme
+		-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+		-- In Vim, compat mode is turned on as Lush only works in Neovim.
+		dependencies = "rktjmp/lush.nvim",
+		lazy = false,
+		priority = 1000,
+		-- you can set set configuration options here
+		-- config = function()
+		--     vim.g.zenbones_darken_comments = 45
+		--     vim.cmd.colorscheme('zenbones')
+		-- end
+	},
+
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+	},
+
+	{
 		"xero/evangelion.nvim",
 		lazy = false,
 		priority = 1000,
@@ -150,19 +184,19 @@ local custom_plugins = {
 
 			hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 				-- normal indent lines (purple)
-				vim.api.nvim_set_hl(0, "IndentPurple", { fg = "#2f324f" })
+				vim.api.nvim_set_hl(0, "IndentWhite", { fg = "#ffffff" })
 
 				-- active scope (when cursor inside function)
-				vim.api.nvim_set_hl(0, "ScopePeach", { fg = "#999ecf" })
+				vim.api.nvim_set_hl(0, "ScopeGray", { fg = "#808080" })
 			end)
 
 			require("ibl").setup({
 				indent = {
-					highlight = { "IndentPurple" },
+					highlight = { "ScopeGray" },
 				},
 				scope = {
 					enabled = true,
-					highlight = { "ScopePeach" },
+					highlight = { "IndentWhite" },
 					show_start = true,
 					show_end = true,
 				},
