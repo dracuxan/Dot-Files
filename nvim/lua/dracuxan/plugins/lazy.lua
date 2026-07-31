@@ -33,25 +33,6 @@ local custom_plugins = {
 	},
 
 	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
-		keys = {
-			{
-				"<leader>?",
-				function()
-					require("which-key").show({ global = false })
-				end,
-				desc = "Buffer Local Keymaps (which-key)",
-			},
-		},
-	},
-
-	{
 		"xero/evangelion.nvim",
 		lazy = false,
 		priority = 1000,
@@ -184,19 +165,19 @@ local custom_plugins = {
 
 			hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 				-- normal indent lines (purple)
-				vim.api.nvim_set_hl(0, "IndentWhite", { fg = "#ffffff" })
+				vim.api.nvim_set_hl(0, "IndentPurple", { fg = "#2f324f" })
 
 				-- active scope (when cursor inside function)
-				vim.api.nvim_set_hl(0, "ScopeGray", { fg = "#808080" })
+				vim.api.nvim_set_hl(0, "ScopePeach", { fg = "#999ecf" })
 			end)
 
 			require("ibl").setup({
 				indent = {
-					highlight = { "ScopeGray" },
+					highlight = { "IndentPurple" },
 				},
 				scope = {
 					enabled = true,
-					highlight = { "IndentWhite" },
+					highlight = { "ScopePeach" },
 					show_start = true,
 					show_end = true,
 				},

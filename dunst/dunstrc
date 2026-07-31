@@ -2,29 +2,29 @@
 # Appearance
 font = "JetBrainsMono Nerd Font 10"
 transparency = 1
-frame_color = "#525252"
-separator_color = "#525252"
+frame_color = "#999ecf"
+separator_color = "#999ecf"
 monitor = 1
 
 # Colors matching your i3 config
-background = "#060606"
-foreground = "#e1e1e1"
+background = "#1D1E1C"
+foreground = "#ffcfa8"
 timeout = 5
 
 [urgency_low]
-background = "#060606"
-foreground = "#7c7c7c"
+background = "#1D1E1C"
+foreground = "#cccccc"
 timeout = 3
 
 [urgency_normal]
-background = "#282828"
-foreground = "#e1e1e1"
+background = "#1D1E1C"
+foreground = "#ffcfa8"
 timeout = 5
 
 [urgency_critical]
-background = "#525252"
-foreground = "#e1e1e1"
-frame_color = "#e1e1e1"
+background = "#1D1E1C"
+foreground = "#ff5555"
+frame_color = "#ff5555"
 timeout = 0
 
 [volume]

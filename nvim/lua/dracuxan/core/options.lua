@@ -29,6 +29,7 @@ vim.o.scrolloff = 0
 vim.o.sidescrolloff = 8
 vim.o.splitbelow = true
 vim.o.splitright = true
+vim.o.equalalways = false
 vim.o.backspace = "indent,eol,start"
 
 -- Indentation
@@ -72,10 +73,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		set_hl(0, "TabLine", { bg = "none" })
 		set_hl(0, "TabLineSel", { bg = "none", bold = true })
 		set_hl(0, "TabLineFill", { bg = "none" })
+		set_hl(0, "LineNr", { bg = "none" })
+		set_hl(0, "CursorLineNr", { bg = "none" })
+		set_hl(0, "SignColumn", { bg = "none" })
+		set_hl(0, "StatusLine", { bg = "none" })
+		set_hl(0, "StatusLineNC", { bg = "none" })
 		set_hl(0, "NormalFloat", { bg = "none" })
 		set_hl(0, "FloatBorder", { bg = "none", fg = "none" })
 		set_hl(0, "OilNormal", { bg = "none" })
 		set_hl(0, "OilFloat", { bg = "none" })
 	end,
 })
-

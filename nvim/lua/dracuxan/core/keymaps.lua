@@ -8,7 +8,6 @@ vim.g.maplocalleader = " "
 local opts = { noremap = true, silent = true }
 
 -- Insert
-vk("i", "nn", "<Esc>", opts)
 vk("i", "<C-b>", "<C-o>^", opts)
 vk("i", "<C-e>", "<C-o>$", opts)
 
@@ -61,10 +60,6 @@ vk("v", "p", '"_dP', opts)
 -- Diagnostics
 vk("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vk("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-
--- Reload
-local new_opts = { desc = "Reload current Lua file", noremap = true, silent = true }
-vk("n", "<leader>rr", ":luafile %<CR>", new_opts)
 
 -- Lazy
 vk("n", "<leader>l", "<cmd>Lazy<CR>", opts)

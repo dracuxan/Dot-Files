@@ -40,8 +40,8 @@ bindsym $mod+Return exec --no-startup-id alacritty
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show run -display-run '>' -m 0
-bindsym $mod+b exec --no-startup-id helium
-bindsym $mod+x exec --no-startup-id helium x.com/dracuxan
+bindsym $mod+b exec --no-startup-id zen
+bindsym $mod+x exec --no-startup-id zen x.com/dracuxan
 
 # Custom keybinds
 bindsym $mod+p exec sioyek
@@ -203,14 +203,14 @@ bar {
 
     colors {
         background #00000000
-        statusline #e1e1e1
-        separator  #525252
+        statusline #ffcfa8
+        separator  #999ecf
 
                               #<border>      <background>     <text>
-        focused_workspace      #e1e1e1     #3c3c3c        #e1e1e1
-        active_workspace       #525252     #282828        #e1e1e1
-        inactive_workspace     #282828     #060606        #7c7c7c
-        urgent_workspace       #e1e1e1     #525252        #060606
+        focused_workspace      $black        #00000000        #ffffff
+        active_workspace       #00000000     #00000000        #ffcfa8
+        inactive_workspace     #00000000     #00000000        #cccccc
+        urgent_workspace       $black        #00000000        #ff5555
     }
 }
 
@@ -221,10 +221,10 @@ bindsym $mod+m bar mode toggle
 # Colorscheme
 
 # Focused window (active)
-client.focused         #e1e1e1 #3c3c3c #e1e1e1 #525252 #e1e1e1
+client.focused         #999ecf #999ecf #000000 #999ecf #999ecf
 
 # Unfocused windows
-client.unfocused       #282828 #060606 #7c7c7c #060606 #282828
+client.unfocused        #1D1E1C #000000 #888888 #000000 #1D1E1C
 
 # mouse for focus
 focus_follows_mouse no
