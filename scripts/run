@@ -146,7 +146,7 @@ exs | ex)
 
     fi
     ;;
-ml)
+ml | mli)
     ML_DIR=$(dirname "$FILE_PATH")
     ML_ROOT="$ML_DIR"
     ML_HAS_DUNE=false

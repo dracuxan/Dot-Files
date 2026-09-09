@@ -1,16 +1,20 @@
 {
   description = "System-wide tools via Nix flakes";
 
-  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; };
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  };
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
-    in {
+    in
+    {
       packages.${system}.default = pkgs.buildEnv {
         name = "system-tools";
 
@@ -47,10 +51,10 @@
           gnumake
           go_1_24
           nodejs_24
-          bun
           pnpm
           python315
           uv
+          odin
 
           # BEAM
           inotify-tools

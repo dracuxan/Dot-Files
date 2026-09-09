@@ -97,6 +97,11 @@ return {
 				filetypes = { "bash", "sh" },
 				root_markers = { ".git" },
 			},
+			ols = {
+				cmd = { "ols" },
+				filetypes = { "odin" },
+				root_markers = { "ols.json", "odin.json", ".git" },
+			},
 			ocamllsp = {
 				cmd = { "opam", "exec", "--", "ocamllsp" },
 				filetypes = { "ocaml", "menhir", "ocamlinterface", "ocamllex", "reason", "dune" },
@@ -145,6 +150,7 @@ return {
 				"rust-analyzer",
 				"nil",
 				"bash-language-server",
+				"ols",
 				"elixir-ls",
 				"stylua",
 				"shfmt",

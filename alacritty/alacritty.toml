@@ -1,5 +1,5 @@
 [font]
-size = 8
+size = 10
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -27,6 +27,9 @@ save_to_clipboard = true
 [window.padding]
 x = 10
 y = 10
+
+[colors.primary]
+background = "#000000"
 
 [keyboard]
 bindings = [

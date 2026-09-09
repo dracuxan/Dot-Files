@@ -45,7 +45,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 local pane_terms = {}
 
 local function pane_term_size()
-	return math.max(8, math.floor(vim.api.nvim_win_get_height(0) * 0.4))
+	return math.max(15, math.floor(vim.api.nvim_win_get_height(0) * 0.65))
 end
 
 local function toggle_pane_term(key, cmd)
@@ -127,7 +127,7 @@ end
 
 -- Set keymaps
 vim.keymap.set("n", "<leader>r", _RUN_SCRIPT, { noremap = true, silent = true, desc = "run script" })
-vim.keymap.set("n", "<leader>t", _RUN_TEST, { noremap = true, silent = true, desc = "run test(s)" })
+vim.keymap.set("n", "<leader>mt", _RUN_TEST, { noremap = true, silent = true, desc = "run test(s)" })
 vim.keymap.set("n", "<leader>i", _RUN_REPL, { noremap = true, silent = true, desc = "run REPL" })
 vim.keymap.set("n", "<leader>mm", _RUN_MIX, { noremap = true, silent = true, desc = "run with MIX" })
 vim.keymap.set("n", "<leader>mb", _RUN_BUILD, { noremap = true, silent = true, desc = "build project" })

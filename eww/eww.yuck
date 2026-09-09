@@ -7,7 +7,7 @@
     (label :xalign 0 :text "Go to Settings to activate Debian")))
 
 (defwindow activate-linux
-  :monitor 1
+  :monitor 0
   :stacking "bg"
   :geometry (geometry :x "0px" :y "-50px" :width "250px" :anchor "bottom right")
   (activate-linux))

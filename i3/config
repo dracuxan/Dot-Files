@@ -87,8 +87,8 @@ bindsym $mod+a focus parent
 bindsym $mod+q kill
 
 # toggle between last focused window
-bindsym Mod1+Tab focus left
-bindsym Mod1+Shift+Tab focus right
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -242,7 +242,7 @@ workspace_layout tabbed
 gaps outer 0
 
 # Set space between windows
-gaps inner 0
+gaps inner 5
 
 # Rules
 assign [class="workfolio"]  workspace 6
